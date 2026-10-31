@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#05171d" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="description"
+      content="Milestone — a beautifully crafted 3D board game about rolling, building, and living a good life. Play offline against friends or AI."
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Milestone — A Life & Fortune Board Game</title>
+  </head>
+  <body>
+    <div id="app" class="app is-title">
+      <div id="scene" class="scene" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+
+      <header id="topbar" class="topbar">
+        <div class="brand brand--small">
+          <span class="brand-mark">M</span>
+          <span class="brand-text">MILESTONE<small>LIFE &amp; FORTUNE</small></span>
+        </div>
+        <div class="top-actions">
+          <button id="sound-btn" class="icon-btn" aria-label="Toggle sound"></button>
+          <button id="help-btn" class="icon-btn" aria-label="How to play"></button>
+          <button id="menu-btn" class="icon-btn" aria-label="Open menu"></button>
+        </div>
+      </header>
+
+      <section id="playerbar" class="playerbar" aria-label="Players"></section>
+
+      <div id="turnbar" class="turnbar" aria-live="polite"></div>
+
+      <aside id="logpanel" class="logpanel" aria-label="Game log"></aside>
+
+      <div id="hint" class="hint" aria-live="polite"></div>
+
+      <div id="actionbar" class="actionbar">
+        <div id="dice-readout" class="dice-readout" aria-hidden="true"></div>
+        <button id="roll-btn" class="roll-btn" disabled>
+          <span class="roll-icon"></span>
+          <span class="roll-copy"><strong>ROLL</strong><small>two dice</small></span>
+        </button>
+      </div>
+
+      <div id="inspector" class="inspector hidden"></div>
+      <div id="title-screen" class="title-screen"></div>
+      <div id="modal-root" class="modal-root"></div>
+      <div id="event-toast" class="event-toast hidden" aria-live="polite"></div>
+      <div id="toast" class="toast hidden" aria-live="polite"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
