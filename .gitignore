@@ -14,3 +14,17 @@ keystore.properties
 .env
 .vite/
 coverage/
+
+*.log
+
+*.pid
+
+.agents/
+
+.agentsweb/
+
+.omgithub-runtime/
+
+.opencode-ssh/
+
+.opencode-web/
