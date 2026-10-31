@@ -1,0 +1,98 @@
+import java.util.Properties
+
+plugins {
+    id 'com.android.application'
+}
+
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace 'com.lifeestate.game'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.lifeestate.game'
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName '1.0.0'
+
+        resourceConfigurations += ['en']
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                storeFile rootProject.file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    packaging {
+        resources {
+            excludes += [
+                'META-INF/DEPENDENCIES',
+                'META-INF/LICENSE',
+                'META-INF/LICENSE.txt',
+                'META-INF/NOTICE',
+                'META-INF/NOTICE.txt'
+            ]
+        }
+    }
+}
+
+def webAssetsDir = file('src/main/assets/www')
+def webDistDir = rootProject.file('../dist')
+
+tasks.register('syncWebAssets', Sync) {
+    description = 'Copies the built Vite bundle into the Android assets folder.'
+    group = 'build'
+    doFirst {
+        if (!webDistDir.exists()) {
+            throw new GradleException('Web bundle missing. Run `npm run build` from the repository root first.')
+        }
+    }
+    from webDistDir
+    into webAssetsDir
+}
+
+tasks.named('preBuild').configure {
+    dependsOn 'syncWebAssets'
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'androidx.webkit:webkit:1.12.1'
+}

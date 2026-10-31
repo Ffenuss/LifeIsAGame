@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Life Estate — a living board game</title>
+    <meta name="description" content="Life Estate is a 3D board game where every property is a living colony." />
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        color: #f1f6e8;
+        font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 50% 0%, #1c5b4e 0%, transparent 55%),
+          #071b1c;
+      }
+      main {
+        width: min(640px, 100%);
+        padding: 44px;
+        border: 1px solid rgba(214, 255, 142, 0.16);
+        border-radius: 26px;
+        background: rgba(13, 43, 40, 0.65);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #b9f26b;
+      }
+      .dot { width: 7px; height: 7px; border-radius: 50%; background: #b9f26b; box-shadow: 0 0 12px #b9f26b; }
+      h1 { margin: 20px 0 10px; font: italic 600 clamp(42px, 10vw, 68px)/0.95 Georgia, serif; letter-spacing: -0.04em; }
+      p { color: #c8d6cc; }
+      a {
+        display: inline-flex;
+        margin-top: 18px;
+        padding: 14px 20px;
+        border-radius: 14px;
+        background: #b9f26b;
+        color: #0a2018;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+      footer { margin-top: 28px; color: #8fa79a; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="eyebrow"><span class="dot"></span>Life Estate</span>
+      <h1>Buy the land.<br />Grow the life.</h1>
+      <p>
+        A 3D board game about a floating island where every property is a living colony.
+        Coming to Android.
+      </p>
+      <a href="./privacy-policy.html">Read the privacy policy</a>
+      <footer>Offline · No ads · No tracking</footer>
+    </main>
+  </body>
+</html>

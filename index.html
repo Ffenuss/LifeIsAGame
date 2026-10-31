@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#071b1c" />
+    <meta name="description" content="Life Estate is a 3D board game where every property is a living colony." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <title>Life Estate — a living board game</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="Life Estate 3D board"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+
+      <div id="boot" class="boot">
+        <div class="boot-mark"><span></span><span></span><span></span><span></span></div>
+        <p>Growing the board…</p>
+      </div>
+
+      <section id="title-screen" class="screen title-screen">
+        <div class="title-top">
+          <span class="eyebrow"><i></i>A living board game</span>
+          <span class="title-version" id="title-version">v1.0.0</span>
+        </div>
+
+        <div class="title-hero">
+          <h1 class="logo" aria-label="Life Estate">
+            <span class="logo-life">Life</span>
+            <span class="logo-row"><span class="logo-rule"></span><span class="logo-estate">Estate</span><span class="logo-rule"></span></span>
+          </h1>
+          <p class="tagline">Buy the land. Grow the life. Keep the fortune.</p>
+        </div>
+
+        <div class="title-bottom">
+          <div class="title-actions">
+            <button id="new-btn" class="btn btn-primary">New game</button>
+            <button id="continue-btn" class="btn btn-ghost hidden">Continue</button>
+            <button id="how-btn" class="btn btn-quiet">How to play</button>
+            <button id="settings-btn" class="btn btn-quiet">Settings</button>
+          </div>
+          <p class="title-foot">Offline <span>·</span> No ads <span>·</span> No tracking</p>
+        </div>
+      </section>
+
+      <section id="game-ui" class="game-ui hidden" aria-live="polite">
+        <header class="hud-top">
+          <div class="brand-mini">Life<span>Estate</span></div>
+          <div class="round-pill">
+            <span id="round-label">Round 1</span>
+            <span id="turn-label">Your turn</span>
+          </div>
+          <button id="menu-btn" class="icon-btn" aria-label="Pause menu">
+            <span></span><span></span><span></span>
+          </button>
+        </header>
+
+        <div id="player-rail" class="player-rail"></div>
+
+        <aside id="tile-card" class="tile-card hidden" aria-live="polite">
+          <button id="tile-close" class="mini-close" aria-label="Close">×</button>
+          <div id="tile-card-body"></div>
+        </aside>
+
+        <div class="view-tools">
+          <button id="rotate-btn" class="tool-btn" aria-label="Rotate the board">⟳</button>
+          <button id="reset-view-btn" class="tool-btn" aria-label="Reset camera">⌖</button>
+        </div>
+
+        <footer class="dock">
+          <div class="turn-copy">
+            <span id="turn-kicker" class="turn-kicker">Your turn</span>
+            <strong id="turn-copy">Roll the dice to explore.</strong>
+          </div>
+          <button id="roll-btn" class="roll-btn" disabled>
+            <span class="roll-glyph" aria-hidden="true">⚄</span>
+            <span id="roll-label">Roll</span>
+          </button>
+        </footer>
+      </section>
+
+      <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+      <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+      <div id="modal-root" class="modal-root" role="dialog" aria-modal="true"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

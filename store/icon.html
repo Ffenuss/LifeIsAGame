@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+      body {
+        background:
+          radial-gradient(circle at 32% 24%, #2b7c62 0%, #10463c 38%, #071b1c 78%),
+          #071b1c;
+        display: grid;
+        place-items: center;
+      }
+      .art {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+      }
+      .halo {
+        position: absolute;
+        inset: 6%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(185, 242, 107, 0.28), transparent 65%);
+        filter: blur(14px);
+      }
+      .grain {
+        position: absolute;
+        inset: 0;
+        opacity: 0.18;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px);
+        background-size: 18px 18px;
+        mask-image: radial-gradient(circle at 50% 50%, black, transparent 75%);
+      }
+      svg {
+        position: relative;
+        width: 78%;
+        height: 78%;
+        filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.38));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="art">
+      <div class="halo"></div>
+      <div class="grain"></div>
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="76" stroke="#B9F26B" stroke-opacity=".26" stroke-width="3" />
+        <circle cx="100" cy="100" r="64" stroke="#E9FFD0" stroke-opacity=".10" stroke-width="12" />
+        <path d="M100 152V84" stroke="#B9F26B" stroke-width="13" stroke-linecap="round" />
+        <path d="M97 107C68 107 55 88 55 68C82 68 97 84 97 107Z" fill="#B9F26B" />
+        <path d="M104 84C104 59 119 45 143 45C143 69 127 84 104 84Z" fill="#D6FF8E" />
+        <circle cx="100" cy="156" r="15" fill="#FFD37A" />
+        <circle cx="100" cy="156" r="6" fill="#FFF1C9" />
+      </svg>
+    </div>
+  </body>
+</html>
